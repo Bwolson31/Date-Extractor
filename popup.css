@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+
+/* Styling for the header */
+h1 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Styling for the review dates output */
+#output {
+    margin-top: 10px;
+}
+
+#output p {
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 14px;
+}
+
+/* Add some hover effect on the paragraphs */
+#output p:hover {
+    background-color: #f0f0f0;
+}
