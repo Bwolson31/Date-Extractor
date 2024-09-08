@@ -5,12 +5,18 @@
     "description": "Extracts the exact date from ambiguously dated posts",
     "permissions": [
         "activeTab",
-        "scripting"
+        "scripting",
+        "webRequest",
+        "webRequestBlocking",
+        "<all_urls"
 
     ],
+    "background": {
+      "service_worker": "background.js"
+    },
     "content_scripts": [
         {
-            "matches": ["https://www.google.com/maps/*"],
+            "matches": ["<all_urls"],
             "js": ["content.js"]
         }
     ],

@@ -1,29 +1,14 @@
-function extractGoogleReviewDates () {
-
-    const reviews = document.querySelectorAll('[data-review-id]');
-    let reviewDates = [];
-
-    reviews.forEach(review => {
-        
-        const dateElement = review.querySelector('.rsqaWe');
-        if (dateElement) {
-            reviewDates.push(dateElement.textContent.trim());
-        }
-    });
-
-    console.log("Review Dates:", reviewDates);
-    return reviewDates;
-}
-
-// Listen for messages from the popup
+// Listen for messages from background.js
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.message === "get_review_dates") {
-        const dates = extractGoogleReviewDates();
-        sendResponse({ dates });
-    }
-});
+    if (request.message === 'get_review_date') {
+        console.log('Review Date:', request.date);
 
-// Optionally trigger the extraction when the page loads (if needed)
-window.addEventListener('load', () => {
-    extractGoogleReviewDates();
+        
+        const dateDisplayElement = document.querySelector('#review-date');
+        if (dateDisplayElement) {
+            dateDisplayElement.innerText = `Exact Date: ${request.date}`;
+        } else {
+            console.log('Date display element not found.');
+        }
+    }
 });
