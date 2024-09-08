@@ -1,19 +1,20 @@
 {
-    "manifest_version": 3,
-    "name": "Date Extractor",
-    "version": "1.0",
-    "description": "Extracts the exact date from ambiguously dated posts",
-    "permissions": [
-        "activeTab",
-        "scripting",
-        "webRequest",
-        "<all_urls>"
-
-    ],
-    "background": {
-      "service_worker": "background.js"
-    },
-    "action": {
-        "default_popup": "popup.html"
-      }
-    }
+  "manifest_version": 3,
+  "name": "Date Extractor",
+  "version": "1.0",
+  "description": "Extracts the exact date from ambiguously dated posts",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "webRequest"
+  ],
+  "host_permissions": [
+    "*://*/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
